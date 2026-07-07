@@ -22,7 +22,7 @@ class Settings(BaseSettings):
         default=None,
         validation_alias=AliasChoices("GEMINI_API_KEY", "GOOGLE_API_KEY"),
     )
-    gemini_model: str = "gemini-3.5-flash"
+    gemini_model: str = "gemini-2.5-flash"
     embedding_model: str = "BAAI/bge-base-en-v1.5"
     matching_model: str | None = None
     skill_score_weight: float = 0.6
