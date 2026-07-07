@@ -1,0 +1,91 @@
+{
+  "technical_skills": [
+    {"name": "API Design", "aliases": ["api design", "rest api design", "api development"]},
+    {"name": "Microservices", "aliases": ["microservices", "microservice architecture"]},
+    {"name": "Data Structures", "aliases": ["data structures", "dsa"]},
+    {"name": "Algorithms", "aliases": ["algorithms", "algorithm design"]},
+    {"name": "Unit Testing", "aliases": ["unit testing", "pytest", "unittest"]},
+    {"name": "CI/CD", "aliases": ["ci/cd", "continuous integration", "continuous delivery"]},
+    {"name": "REST APIs", "aliases": ["rest api", "rest apis", "restful api", "restful apis"]},
+    {"name": "GraphQL", "aliases": ["graphql"]}
+  ],
+  "tools": [
+    {"name": "Git", "aliases": ["git", "github", "gitlab", "bitbucket"]},
+    {"name": "Docker", "aliases": ["docker", "docker compose"]},
+    {"name": "Jenkins", "aliases": ["jenkins"]},
+    {"name": "Postman", "aliases": ["postman"]},
+    {"name": "Terraform", "aliases": ["terraform"]},
+    {"name": "Linux", "aliases": ["linux", "unix"]},
+    {"name": "Nginx", "aliases": ["nginx"]},
+    {"name": "Kubernetes", "aliases": ["kubernetes", "k8s"]}
+  ],
+  "frameworks": [
+    {"name": "FastAPI", "aliases": ["fastapi", "fast api"]},
+    {"name": "Django", "aliases": ["django", "django rest framework", "drf"]},
+    {"name": "Flask", "aliases": ["flask"]},
+    {"name": "React", "aliases": ["react", "react.js", "reactjs"]},
+    {"name": "Angular", "aliases": ["angular"]},
+    {"name": "Vue.js", "aliases": ["vue", "vue.js", "vuejs"]},
+    {"name": "Node.js", "aliases": ["node", "node.js", "nodejs"]},
+    {"name": "Express.js", "aliases": ["express", "express.js", "expressjs"]}
+  ],
+  "cloud_technologies": [
+    {"name": "AWS", "aliases": ["aws", "amazon web services"]},
+    {"name": "Azure", "aliases": ["azure", "microsoft azure"]},
+    {"name": "Google Cloud", "aliases": ["gcp", "google cloud", "google cloud platform"]},
+    {"name": "AWS Lambda", "aliases": ["lambda", "aws lambda"]},
+    {"name": "Amazon S3", "aliases": ["s3", "amazon s3"]},
+    {"name": "EC2", "aliases": ["ec2", "amazon ec2"]},
+    {"name": "Cloud Run", "aliases": ["cloud run"]},
+    {"name": "Firebase", "aliases": ["firebase"]}
+  ],
+  "programming_languages": [
+    {"name": "Python", "aliases": ["python", "python3"]},
+    {"name": "JavaScript", "aliases": ["javascript", "js"]},
+    {"name": "TypeScript", "aliases": ["typescript", "ts"]},
+    {"name": "Java", "aliases": ["java"]},
+    {"name": "C++", "aliases": ["c++", "cpp"]},
+    {"name": "C#", "aliases": ["c#", "c sharp"]},
+    {"name": "Go", "aliases": ["go", "golang"]},
+    {"name": "Rust", "aliases": ["rust"]},
+    {"name": "SQL", "aliases": ["sql"]},
+    {"name": "HTML", "aliases": ["html", "html5"]},
+    {"name": "CSS", "aliases": ["css", "css3"]}
+  ],
+  "databases": [
+    {"name": "PostgreSQL", "aliases": ["postgresql", "postgres"]},
+    {"name": "MySQL", "aliases": ["mysql"]},
+    {"name": "MongoDB", "aliases": ["mongodb", "mongo db"]},
+    {"name": "Redis", "aliases": ["redis"]},
+    {"name": "SQLite", "aliases": ["sqlite"]},
+    {"name": "DynamoDB", "aliases": ["dynamodb", "dynamo db"]},
+    {"name": "Elasticsearch", "aliases": ["elasticsearch", "elastic search"]},
+    {"name": "Pinecone", "aliases": ["pinecone"]},
+    {"name": "FAISS", "aliases": ["faiss"]},
+    {"name": "ChromaDB", "aliases": ["chromadb", "chroma db"]}
+  ],
+  "ai_ml_libraries": [
+    {"name": "NumPy", "aliases": ["numpy"]},
+    {"name": "Pandas", "aliases": ["pandas"]},
+    {"name": "scikit-learn", "aliases": ["scikit-learn", "sklearn"]},
+    {"name": "TensorFlow", "aliases": ["tensorflow"]},
+    {"name": "PyTorch", "aliases": ["pytorch", "torch"]},
+    {"name": "Keras", "aliases": ["keras"]},
+    {"name": "spaCy", "aliases": ["spacy", "spa cy"]},
+    {"name": "NLTK", "aliases": ["nltk"]},
+    {"name": "Hugging Face", "aliases": ["hugging face", "transformers"]},
+    {"name": "LangChain", "aliases": ["langchain"]},
+    {"name": "LlamaIndex", "aliases": ["llamaindex", "llama index"]},
+    {"name": "OpenCV", "aliases": ["opencv", "cv2"]}
+  ],
+  "soft_skills": [
+    {"name": "Communication", "aliases": ["communication", "written communication", "verbal communication"]},
+    {"name": "Leadership", "aliases": ["leadership", "team leadership"]},
+    {"name": "Problem Solving", "aliases": ["problem solving", "analytical thinking"]},
+    {"name": "Collaboration", "aliases": ["collaboration", "teamwork", "cross-functional collaboration"]},
+    {"name": "Ownership", "aliases": ["ownership", "accountability"]},
+    {"name": "Adaptability", "aliases": ["adaptability", "flexibility"]},
+    {"name": "Mentoring", "aliases": ["mentoring", "coaching"]},
+    {"name": "Project Management", "aliases": ["project management", "stakeholder management"]}
+  ]
+}

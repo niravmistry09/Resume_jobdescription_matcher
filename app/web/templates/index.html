@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ app_name }}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+R6E9D18HC4c8J1Q2nEt3IymI13yT2xyQEDCyd1i"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-section">
+        <div class="container-xl">
+          <div class="row align-items-end g-4">
+            <div class="col-lg-8">
+              <span class="eyebrow">AI Resume Matcher</span>
+              <h1>Resume and JD comparison workspace</h1>
+              <p class="hero-copy">
+                Upload a resume and job description, then run the live matching pipeline.
+              </p>
+            </div>
+            <div class="col-lg-4">
+              <div class="status-strip">
+                <span class="status-dot"></span>
+                <span>Frontend connected to POST /api/v1/compare</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container-xl pb-5">
+        <form id="compare-form" class="row g-4" novalidate>
+          <div class="col-lg-6">
+            <article class="upload-panel h-100">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">Resume Upload</p>
+                  <h2>Candidate Resume</h2>
+                </div>
+                <span class="file-type">PDF TXT</span>
+              </div>
+              <label class="upload-zone" for="resume-file">
+                <span class="upload-icon">CV</span>
+                <span class="upload-title">Choose resume file</span>
+                <span id="resume-file-name" class="upload-meta">No file selected</span>
+              </label>
+              <input
+                id="resume-file"
+                class="form-control visually-hidden"
+                type="file"
+                accept=".pdf,.txt,.text"
+                required
+              />
+            </article>
+          </div>
+
+          <div class="col-lg-6">
+            <article class="upload-panel h-100">
+              <div class="panel-heading">
+                <div>
+                  <p class="panel-kicker">JD Input</p>
+                  <h2>Job Description</h2>
+                </div>
+                <span class="file-type">PDF TXT</span>
+              </div>
+              <label class="upload-zone" for="jd-file">
+                <span class="upload-icon">JD</span>
+                <span class="upload-title">Choose job description file</span>
+                <span id="jd-file-name" class="upload-meta">No file selected</span>
+              </label>
+              <input
+                id="jd-file"
+                class="form-control visually-hidden"
+                type="file"
+                accept=".pdf,.txt,.text"
+              />
+              <div class="text-input-zone">
+                <label for="jd-text" class="text-input-label">Or paste job description text</label>
+                <textarea
+                  id="jd-text"
+                  class="form-control"
+                  rows="8"
+                  placeholder="Paste the job description here..."
+                ></textarea>
+              </div>
+            </article>
+          </div>
+
+          <div class="col-12">
+            <div class="action-bar">
+              <button id="compare-button" class="btn btn-primary btn-lg" type="submit">
+                Compare Resume
+              </button>
+              <div id="loading-state" class="loading-state d-none" role="status" aria-live="polite">
+                <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                <span>Preparing analysis...</span>
+              </div>
+              <p id="form-message" class="form-message mb-0"></p>
+            </div>
+          </div>
+        </form>
+
+        <section id="results-section" class="results-section d-none" aria-labelledby="results-title">
+          <div class="section-title-row">
+            <div>
+              <p class="panel-kicker">Live Analysis</p>
+              <h2 id="results-title">Match Results</h2>
+            </div>
+            <span id="analysis-source" class="analysis-source">API Response</span>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-lg-4">
+              <article class="score-card h-100">
+                <div class="score-ring" id="score-ring">
+                  <span id="match-score">0%</span>
+                </div>
+                <h3>Match Score</h3>
+                <p id="score-summary"></p>
+              </article>
+            </div>
+
+            <div class="col-lg-8">
+              <article class="result-card h-100">
+                <div class="result-card-header">
+                  <h3>AI Explanation</h3>
+                </div>
+                <p id="ai-explanation" class="explanation-text"></p>
+              </article>
+            </div>
+
+            <div class="col-lg-4">
+              <article class="result-card h-100">
+                <div class="result-card-header">
+                  <h3>Matched Skills</h3>
+                </div>
+                <div id="matched-skills" class="skill-list"></div>
+              </article>
+            </div>
+
+            <div class="col-lg-4">
+              <article class="result-card h-100">
+                <div class="result-card-header">
+                  <h3>Missing Skills</h3>
+                </div>
+                <div id="missing-skills" class="skill-list missing"></div>
+              </article>
+            </div>
+
+            <div class="col-lg-4">
+              <article class="result-card h-100">
+                <div class="result-card-header">
+                  <h3>Suggestions</h3>
+                </div>
+                <ul id="suggestions-list" class="suggestions-list"></ul>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', path='/js/app.js') }}"></script>
+  </body>
+</html>
