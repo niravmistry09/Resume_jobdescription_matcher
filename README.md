@@ -8,6 +8,8 @@ The app supports resume upload, job description upload, pasted job description t
 
 ## Features
 
+
+
 - Resume upload support
 - Job description upload support
 - Job description copy-paste support
@@ -24,7 +26,10 @@ The app supports resume upload, job description upload, pasted job description t
 - Modern responsive frontend
 
 ---
-
+---
+run command : python -m uvicorn app.main:app --reload
+---
+---
 ## Tech Stack
 
 ### Backend
