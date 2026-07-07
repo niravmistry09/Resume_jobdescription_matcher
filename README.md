@@ -61,6 +61,8 @@ The app supports resume upload, job description upload, pasted job description t
 
 ---
 
+run command : python -m uvicorn app.main:app --reload
+
 ## Project Structure
 
 ```text
