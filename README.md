@@ -1,120 +1,73 @@
-# AI Resume Matcher
 
-AI Resume Matcher is a full-stack FastAPI application that compares a candidate resume with a job description and returns a structured match analysis.
+## 🚀 Features
 
-The app supports resume upload, job description upload, pasted job description text, skill extraction, semantic similarity, weighted scoring, and Gemini-based explanation.
-
----
-
-## Features
-
-
-
-- Resume upload support
-- Job description upload support
-- Job description copy-paste support
-- PDF and TXT parsing
-- Text cleaning and normalization
-- Rule-based skill extraction without LLM
-- Skill taxonomy using `skills.json`
-- Sentence embeddings using `BAAI/bge-base-en-v1.5`
-- Cosine similarity using scikit-learn
-- Configurable weighted scoring
-- Gemini API explanation
-- Matched skills, missing skills, extra skills
-- Improvement suggestions
-- Modern responsive frontend
-
----
----
-run command : python -m uvicorn app.main:app --reload
----
----
-## Tech Stack
-
-### Backend
-
-- FastAPI
-- Pydantic
-- Uvicorn
-- python-dotenv
-
-### Frontend
-
-- HTML
-- CSS
-- JavaScript
-- Bootstrap
-
-### AI / NLP
-
-- sentence-transformers
-- `BAAI/bge-base-en-v1.5`
-- spaCy
-- regex
-- Gemini API
-
-### Parsing
-
-- pdfplumber
-- PyMuPDF
-
-### Similarity and Scoring
-
-- scikit-learn cosine similarity
-- custom scoring service
+*   **PDF Text Extraction:** Built-in parsers using `PyMuPDF` and `pdfplumber`.
+*   **Semantic Similarity:** Computes embedding vectors using the `BAAI/bge-base-en-v1.5` transformer model via PyTorch to accurately match concepts, not just keywords.
+*   **AI Explanations:** Powered by `google-genai` using the latest `gemini-2.5-flash` model to give structured insights (strengths, gaps, suggestions) on why a candidate fits or doesn't fit the role.
+*   **Modern Web UI:** Simple UI components embedded directly inside the FastAPI ecosystem.
+*   **Production Ready:** Full structured logging with crash-protection filters and unit/integration testing suite using `pytest`.
 
 ---
 
-run command : python -m uvicorn app.main:app --reload
-
-## Project Structure
+## 📂 Project Structure
 
 ```text
-app/
-  api/
-    dependencies.py
-    v1/
-      endpoints/
-        compare.py
-        health.py
-      router.py
+RESUME_JOBDESCRIPTION_MATCHER/
+├── app/
+│   ├── api/            # Route endpoints & API versioning v1
+│   ├── application/    # Core business use cases
+│   ├── core/           # Config setups, logging configurations, exceptions
+│   ├── domain/         # Core business logic models
+│   ├── infrastructure/ # External services (Gemini Client, Embeddings Engine)
+│   ├── prompts/        # System prompts for LLM tuning
+│   ├── schemas/        # Pydantic validation schemas
+│   └── web/            # HTML templates and static UI assets
+├── docs/               # System architecture design notes
+├── tests/              # Unit & Integration test pipelines
+├── .env.example        # Environment blueprint
+└── requirements.txt    # Project dependencies
 
-  application/
-    use_cases/
-      compare_resume.py
+🛠️ Setup Instructions
 
-  core/
-    config.py
-    exceptions.py
-    logging.py
+1. Prerequisites
+Ensure you have Python 3.10+ installed on your system.
 
-  domain/
-    entities/
-      resume.py
-      job_description.py
 
-  infrastructure/
-    external/
-      cleaner.py
-      parser.py
-      skill_extractor.py
-      skills.json
-      embedding_service.py
-      similarity_service.py
-      scoring_service.py
-      explanation_service.py
+2. Clone and Setup Environment
 
-  prompts/
-    resume_explanation_prompt.txt
+# Initialize virtual environment
+python -m venv venv
 
-  schemas/
-    compare.py
+# Activate virtual environment
+# On Windows:
+.\venv\Scripts\activate
+# On Mac/Linux:
+source venv/bin/activate
 
-  web/
-    router.py
-    static/
-      css/
+
+3. Install Dependencies
+
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+
+
+4. Configuration
+Create a .env file in the root directory (copy from .env.example):
+
+
+GEMINI_API_KEY=your_actual_google_ai_studio_api_key
+APP_ENV=development
+APP_DEBUG=True
+
+⚡ Running the Application
+To start the FastAPI production-ready development server with auto-reload:
+
+python -m uvicorn app.main:app --reload
+
+🧪 Testing:
+The repository includes structured unit and integration tests. To run the automated validation tests:
+
+pytest
         styles.css
       js/
         app.js
