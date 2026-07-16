@@ -67,9 +67,3 @@ python -m uvicorn app.main:app --reload
 🧪 Testing:
 The repository includes structured unit and integration tests. To run the automated validation tests:
 
-pytest
-        styles.css
-      js/
-        app.js
-    templates/
-      index.html
