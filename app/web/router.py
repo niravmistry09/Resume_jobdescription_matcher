@@ -11,6 +11,9 @@ TEMPLATE_DIR = Path(__file__).resolve().parent / "templates"
 templates = Jinja2Templates(directory=TEMPLATE_DIR)
 router = APIRouter(include_in_schema=False)
 
+from fastapi.responses import HTMLResponse
+
+
 
 @router.get("/", response_class=HTMLResponse)
 async def index(request: Request) -> HTMLResponse:

@@ -4,6 +4,8 @@ from logging.config import dictConfig
 from app.core.config import Settings
 
 
+
+
 def configure_logging(settings: Settings) -> None:
     log_level = settings.log_level.upper()
 

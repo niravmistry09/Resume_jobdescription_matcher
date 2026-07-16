@@ -54,7 +54,7 @@ class ExplanationService:
                 "Gemini explanation generation failed."
             ) from exc
 
-        raw_text = getattr(interaction, "output_text", None)
+        raw_text = getattr(interaction, "text", None) or getattr(interaction, "output_text", None)
         if not raw_text:
             raise ExplanationGenerationError("Gemini returned an empty explanation.")
 
@@ -67,26 +67,22 @@ class ExplanationService:
 
     def _create_interaction(
         self,
-        client: GeminiClient,
+        client: Any,  # Protocol validation bypass karne ke liye Any kiya
         model_name: str,
         prompt: str,
     ):
+        # Naye SDK me configuration Types.GenerateContentConfig se jati hai ya direct dict se
         generation_config = {
             "temperature": 0.2,
             "response_mime_type": "application/json",
         }
-        try:
-            return client.interactions.create(
-                model=model_name,
-                input=prompt,
-                generation_config=generation_config,
-            )
-        except TypeError:
-            return client.interactions.create(
-                model=model_name,
-                input=prompt,
-                generation_config={"temperature": 0.2},
-            )
+        
+        # client.interactions.create ko badal kar client.models.generate_content kiya
+        return client.models.generate_content(
+            model=model_name,
+            contents=prompt,
+            config=generation_config,
+        )
 
     def _get_client(self) -> GeminiClient:
         if self._client is not None:
